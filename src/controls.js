@@ -14,9 +14,15 @@ export default class Controls extends Component {
     });
   };
 
+  submitIdea = e => {
+    console.log("hi");
+    e.preventDefault();
+    this.props.submitCard(this.state);
+  };
+
   render() {
     return (
-      <div>
+      <form onSubmit={this.submitIdea}>
         <h1>Material Ideabox</h1>
         <TextField
           variant="outlined"
@@ -34,11 +40,11 @@ export default class Controls extends Component {
           onChange={this.recordInput}
         />
         <div>
-          <Button variant="contained" size="small">
+          <Button onClick={this.submitIdea} variant="contained" size="small">
             Save
           </Button>
         </div>
-      </div>
+      </form>
     );
   }
 }
